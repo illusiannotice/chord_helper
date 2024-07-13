@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     23265,        509]
-NotebookOptionsPosition[     21335,        472]
-NotebookOutlinePosition[     21676,        487]
-CellTagsIndexPosition[     21633,        484]
+NotebookDataLength[     23060,        507]
+NotebookOptionsPosition[     21318,        472]
+NotebookOutlinePosition[     21659,        487]
+CellTagsIndexPosition[     21616,        484]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -234,7 +234,10 @@ Cell[BoxData[
      RowBox[{"Column", "[", 
       RowBox[{"{", 
        RowBox[{
-        RowBox[{"Dynamic", "[", "chordName", "]"}], ",", 
+        RowBox[{"Style", "[", 
+         RowBox[{
+          RowBox[{"Dynamic", "[", "chordName", "]"}], ",", " ", 
+          RowBox[{"FontSize", "\[Rule]", "50"}]}], "]"}], ",", 
         RowBox[{"InputField", "[", 
          RowBox[{
           RowBox[{"Dynamic", "[", "toneNote", "]"}], ",", "String", ",", " ", 
@@ -372,8 +375,9 @@ Cell[BoxData[
    3.9297464452627096`*^9}, {3.9297472672448845`*^9, 
    3.9297472972048006`*^9}, {3.929747339454427*^9, 3.9297473667476606`*^9}, 
    3.929748168274966*^9, {3.929748289082592*^9, 3.929748308417204*^9}, {
-   3.929752307764595*^9, 3.929752321347336*^9}},
- CellLabel->"In[16]:=",ExpressionUUID->"7e32485b-42d6-45e1-8f83-3aa1bb168b15"],
+   3.929752307764595*^9, 3.929752321347336*^9}, {3.929838304741005*^9, 
+   3.9298383564903555`*^9}},
+ CellLabel->"In[19]:=",ExpressionUUID->"7e32485b-42d6-45e1-8f83-3aa1bb168b15"],
 
 Cell[BoxData[
  DynamicModuleBox[{$CellContext`toneVal$$ = 0, $CellContext`majNote$$ = 
@@ -381,8 +385,11 @@ Cell[BoxData[
   PanelBox[
    TagBox[GridBox[{
       {
-       DynamicBox[ToBoxes[$CellContext`chordName, StandardForm],
-        ImageSizeCache->{72., {3., 9.}}]},
+       StyleBox[
+        DynamicBox[ToBoxes[$CellContext`chordName, StandardForm],
+         ImageSizeCache->{201., {0., 38.}}],
+        StripOnInput->False,
+        FontSize->50]},
       {
        InputFieldBox[Dynamic[$CellContext`toneNote], String,
         FieldHint->"Enter the tone note of chord",
@@ -447,26 +454,19 @@ $CellContext`chordNotesArr]]]]; $CellContext`chordNotesArr = {}; Null),
    3.929752268355357*^9, {3.9297523231591434`*^9, 3.929752342107973*^9}, 
    3.9297525678166947`*^9, 3.9297526353189*^9, 3.9297526780574083`*^9, 
    3.9297527605235004`*^9, 3.92975282019125*^9, 3.9298369771783586`*^9, 
-   3.9298372861688004`*^9, 3.929837323398424*^9, 3.9298374587762775`*^9},
- CellLabel->"Out[16]=",ExpressionUUID->"9464f983-a201-420d-9dbc-480e79abf905"],
+   3.9298372861688004`*^9, 3.929837323398424*^9, 3.9298374587762775`*^9, {
+   3.929838335724815*^9, 3.929838357979275*^9}},
+ CellLabel->"Out[19]=",ExpressionUUID->"70b01df8-a874-473a-a870-3845ec737782"],
 
 Cell[CellGroupData[{
 
-Cell[BoxData["\<\"Major\"\>"], "Print",
- CellChangeTimes->{3.9298374613314123`*^9},
- CellLabel->"",ExpressionUUID->"9ce7c23a-fecb-4fe0-8b5d-46196cb428b8"],
-
-Cell[BoxData["\<\"Major\"\>"], "Print",
- CellChangeTimes->{3.929837467546603*^9},
- CellLabel->"",ExpressionUUID->"51330171-1f51-447d-9714-a40912166474"],
-
-Cell[BoxData["\<\"Nothing\"\>"], "Print",
- CellChangeTimes->{3.929837486875371*^9},
- CellLabel->"",ExpressionUUID->"26352ac2-65d9-4770-bd42-7f9288ab7f4d"],
-
 Cell[BoxData["\<\"Minor\"\>"], "Print",
- CellChangeTimes->{3.9298375167138996`*^9},
- CellLabel->"",ExpressionUUID->"c0065e7d-7003-495f-8d02-6efa145cc37e"]
+ CellChangeTimes->{3.9298384063707113`*^9},
+ CellLabel->"",ExpressionUUID->"c0de3cc7-e655-4067-9fb0-3f3f00350692"],
+
+Cell[BoxData["\<\"Major\"\>"], "Print",
+ CellChangeTimes->{3.9298385434667478`*^9},
+ CellLabel->"",ExpressionUUID->"6a016dab-cb02-4a0b-956e-ab80a985b97a"]
 }, Open  ]]
 }, Open  ]]
 },
@@ -502,13 +502,11 @@ Cell[8393, 201, 689, 11, 67, "Input",ExpressionUUID->"03011f32-0323-46f8-a3cb-c4
 Cell[9085, 214, 283, 6, 22, "Print",ExpressionUUID->"a16c355c-b7ab-4bb3-bdd9-44588c6bf34f"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[9405, 225, 7849, 150, 599, "Input",ExpressionUUID->"7e32485b-42d6-45e1-8f83-3aa1bb168b15"],
-Cell[17257, 377, 3402, 73, 185, "Output",ExpressionUUID->"9464f983-a201-420d-9dbc-480e79abf905"],
+Cell[9405, 225, 8021, 154, 618, "Input",ExpressionUUID->"7e32485b-42d6-45e1-8f83-3aa1bb168b15"],
+Cell[17429, 381, 3525, 77, 215, "Output",ExpressionUUID->"70b01df8-a874-473a-a870-3845ec737782"],
 Cell[CellGroupData[{
-Cell[20684, 454, 154, 2, 22, "Print",ExpressionUUID->"9ce7c23a-fecb-4fe0-8b5d-46196cb428b8"],
-Cell[20841, 458, 152, 2, 22, "Print",ExpressionUUID->"51330171-1f51-447d-9714-a40912166474"],
-Cell[20996, 462, 154, 2, 22, "Print",ExpressionUUID->"26352ac2-65d9-4770-bd42-7f9288ab7f4d"],
-Cell[21153, 466, 154, 2, 22, "Print",ExpressionUUID->"c0065e7d-7003-495f-8d02-6efa145cc37e"]
+Cell[20979, 462, 154, 2, 22, "Print",ExpressionUUID->"c0de3cc7-e655-4067-9fb0-3f3f00350692"],
+Cell[21136, 466, 154, 2, 22, "Print",ExpressionUUID->"6a016dab-cb02-4a0b-956e-ab80a985b97a"]
 }, Open  ]]
 }, Open  ]]
 }
