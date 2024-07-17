@@ -5,6 +5,7 @@ BeginPackage["SequenceScanner`"];
 
 isMinor::usage = "Checks if chord is minor or not.";
 generatePostfix::usage = "generates chords postfix";
+formatSequence::usage = "Changes sequence by given map";
 
 
 Begin["`Private`"];
@@ -16,8 +17,9 @@ generatePostfix[noteMap_, diffMap_, tone_, sequence_]:=(postfix = "";For[i = 1, 
 															If[noteMap[[sequence[[i]]]] > noteMap[[tone]], 
 																(*TrueCase*)
 																postfix = postfix <> Key[Key[sequence[[i]]][noteMap]- Key[tone][noteMap]][diffMap],
-																postfix = postfix <> Key[-(Key[sequence[[i]]][noteMap]- Key[tone][noteMap])][diffMap]]]];
+																postfix = postfix <> Key[(Key[sequence[[i]]][noteMap] + 12)- Key[tone][noteMap]][diffMap]]]];
 														Return[postfix]);
+formatSequence[formMap_, sequence_]:=(formated = {}; For[i = 1, i <= Length[sequence], i++, AppendTo[formated, Key[Part[sequence, i]][formMap]]; Print[formated]]; Return[formated]) 
 
 
 End[];
