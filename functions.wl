@@ -19,6 +19,7 @@ generatePostfix[noteMap_, diffMap_, tone_, sequence_]:=(postfix = "";For[i = 1, 
 																postfix = postfix <> Key[Key[sequence[[i]]][noteMap]- Key[tone][noteMap]][diffMap],
 																postfix = postfix <> Key[(Key[sequence[[i]]][noteMap] + 12)- Key[tone][noteMap]][diffMap]]]];
 														Return[postfix]);
+isSept[sequence_, septNote_]:=(For[i = 1, i <= Length[sequence], i++, If[sequence[[i]] == septNote,Return[True]]],)
 formatSequence[formMap_, sequence_]:=(formated = {}; For[i = 1, i <= Length[sequence], i++, AppendTo[formated, Key[Part[sequence, i]][formMap]]; Print[formated]]; Return[formated]) 
 
 
