@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     34931,        757]
-NotebookOptionsPosition[     33142,        720]
-NotebookOutlinePosition[     33485,        735]
-CellTagsIndexPosition[     33442,        732]
+NotebookDataLength[     43247,        918]
+NotebookOptionsPosition[     41771,        886]
+NotebookOutlinePosition[     42114,        901]
+CellTagsIndexPosition[     42071,        898]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -190,7 +190,7 @@ Cell[BoxData[""], "Input",
 
 Cell[BoxData[{
  RowBox[{
-  RowBox[{"toneNote", " ", "=", " ", "\"\<\>\""}], 
+  RowBox[{"toneNote", " ", "=", " ", "\"\<Do\>\""}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Dynamic", "[", "chordNotesArr", "]"}], 
@@ -200,16 +200,16 @@ Cell[BoxData[{
    RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"chordNotesStr", " ", "=", " ", "Null"}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"chordName", " ", "=", " ", 
-   RowBox[{"\"\<\>\"", " ", "<>", " ", "toneNote"}]}], ";"}]}], "Input",
+  ";"}], "\[IndentingNewLine]"}], "Input",
  CellChangeTimes->{{3.9295042445795975`*^9, 3.9295042645957193`*^9}, {
-  3.9296704144127016`*^9, 3.929670434803341*^9}, {3.9296973394810524`*^9, 
-  3.9296973451600533`*^9}, {3.929752806800619*^9, 3.929752814353649*^9}, {
-  3.929851412885128*^9, 3.929851413158588*^9}, {3.929852786565599*^9, 
-  3.92985279075541*^9}, {3.93009578408864*^9, 3.9300958106146684`*^9}},
- CellLabel->"In[7]:=",ExpressionUUID->"4ee74136-1d10-48d6-a04b-c17eba218843"],
+   3.9296704144127016`*^9, 3.929670434803341*^9}, {3.9296973394810524`*^9, 
+   3.9296973451600533`*^9}, {3.929752806800619*^9, 3.929752814353649*^9}, {
+   3.929851412885128*^9, 3.929851413158588*^9}, {3.929852786565599*^9, 
+   3.92985279075541*^9}, {3.93009578408864*^9, 3.9300958106146684`*^9}, 
+   3.9357534601433268`*^9, {3.9357541712943225`*^9, 3.9357541715260124`*^9}, 
+   3.935755597776647*^9, 
+   3.9357564280487075`*^9},ExpressionUUID->"4ee74136-1d10-48d6-a04b-\
+c17eba218843"],
 
 Cell[BoxData[{
  RowBox[{
@@ -322,35 +322,153 @@ Cell[BoxData[{
    ")"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{"formatSequence", "[", 
-    RowBox[{"formMap_", ",", " ", "sequence_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"formatSequence", "[", 
+     RowBox[{"formMap_", ",", " ", "sequence_"}], "]"}], ":=", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"formated", " ", "=", " ", 
+       RowBox[{"{", "}"}]}], ";", " ", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"i", " ", "=", " ", "1"}], ",", " ", 
+        RowBox[{"i", " ", "<=", " ", 
+         RowBox[{"Length", "[", "sequence", "]"}]}], ",", " ", 
+        RowBox[{"i", "++"}], ",", " ", 
+        RowBox[{
+         RowBox[{"AppendTo", "[", 
+          RowBox[{"formated", ",", " ", 
+           RowBox[{
+            RowBox[{"Key", "[", 
+             RowBox[{"Part", "[", 
+              RowBox[{"sequence", ",", " ", "i"}], "]"}], "]"}], "[", 
+            "formMap", "]"}]}], "]"}], ";", " ", 
+         RowBox[{"Print", "[", "formated", "]"}]}]}], "]"}], ";", " ", 
+      RowBox[{"Return", "[", "formated", "]"}]}], ")"}]}], " ", ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"toneConverter", "[", 
+    RowBox[{"mapTo_", ",", " ", "mapFrom_"}], "]"}], ":=", " ", 
+   RowBox[{"toneNote", " ", "=", " ", 
+    RowBox[{
+     RowBox[{"Keys", "[", 
+      RowBox[{"Select", "[", 
+       RowBox[{"mapTo", ",", " ", 
+        RowBox[{
+         RowBox[{"#", " ", "\[Equal]", " ", 
+          RowBox[{"mapFrom", "[", 
+           RowBox[{"[", "toneNote", "]"}], "]"}]}], "&"}]}], "]"}], "]"}], 
+     "[", 
+     RowBox[{"[", "1", "]"}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"sequenceConverter", "[", 
+    RowBox[{"sequence_", ",", " ", "mapTo_", ",", " ", "mapFrom_"}], "]"}], ":=",
+    " ", 
    RowBox[{"(", 
     RowBox[{
-     RowBox[{"formated", " ", "=", " ", 
-      RowBox[{"{", "}"}]}], ";", " ", 
      RowBox[{"For", "[", 
       RowBox[{
-       RowBox[{"i", " ", "=", " ", "1"}], ",", " ", 
-       RowBox[{"i", " ", "<=", " ", 
+       RowBox[{"i", "  ", "=", " ", "1"}], ",", " ", 
+       RowBox[{"i", "\[LessEqual]", " ", 
         RowBox[{"Length", "[", "sequence", "]"}]}], ",", " ", 
        RowBox[{"i", "++"}], ",", " ", 
        RowBox[{
-        RowBox[{"AppendTo", "[", 
-         RowBox[{"formated", ",", " ", 
-          RowBox[{
-           RowBox[{"Key", "[", 
-            RowBox[{"Part", "[", 
-             RowBox[{"sequence", ",", " ", "i"}], "]"}], "]"}], "[", 
-           "formMap", "]"}]}], "]"}], ";", " ", 
-        RowBox[{"Print", "[", "formated", "]"}]}]}], "]"}], ";", " ", 
-     RowBox[{"Return", "[", "formated", "]"}]}], ")"}]}], " ", 
-  ";"}], "\[IndentingNewLine]"}], "Input",
+        RowBox[{"sequence", "[", 
+         RowBox[{"[", "i", "]"}], "]"}], " ", "=", " ", 
+        RowBox[{
+         RowBox[{"Keys", "[", 
+          RowBox[{"Select", "[", 
+           RowBox[{"mapTo", ",", " ", 
+            RowBox[{
+             RowBox[{"#", " ", "\[Equal]", 
+              RowBox[{"mapFrom", "[", 
+               RowBox[{"[", 
+                RowBox[{"sequence", "[", 
+                 RowBox[{"[", "i", "]"}], "]"}], "]"}], "]"}]}], "&"}]}], 
+           "]"}], "]"}], "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}]}], "]"}], ";", 
+     RowBox[{"Return", "[", "sequence", "]"}]}], ")"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"createChordName", "[", 
+    RowBox[{"noteMap_", ",", "minNote_", ",", "majNote_"}], "]"}], ":=", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"tmp", " ", "=", " ", "\"\<\>\""}], ";", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"isMinor", "[", 
+         RowBox[{"chordNotesArr", ",", " ", "minNote", ",", " ", "majNote"}], 
+         "]"}], " ", "\[Equal]", " ", "\"\<Minor\>\""}], ",", " ", 
+       "\[IndentingNewLine]", "\t\t\t\t", 
+       RowBox[{"(*", "TrueCase", "*)"}], "\[IndentingNewLine]", "\t\t\t\t", 
+       RowBox[{
+        RowBox[{"tmp", "=", " ", 
+         RowBox[{"\"\<\>\"", " ", "<>", " ", "toneNote"}]}], ";", 
+        "\[IndentingNewLine]", "\t\t\t\t", 
+        RowBox[{"tmp", "=", " ", 
+         RowBox[{"chordName", " ", "<>", " ", "\"\<m\>\""}]}], ";", 
+        "\[IndentingNewLine]", "\t\t\t\t", 
+        RowBox[{"tmp", "=", " ", 
+         RowBox[{"chordName", " ", "<>", " ", 
+          RowBox[{"generatePostfix", "[", 
+           RowBox[{
+           "noteMap", ",", " ", "diffMapWithThree", ",", " ", "toneNote", ",",
+             "chordNotesArr"}], "]"}]}]}]}], ",", "\[IndentingNewLine]", 
+       "                                    ", 
+       RowBox[{"(*", "FalseCase", "*)"}], "\[IndentingNewLine]", "\t\t\t\t", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"isMinor", "[", 
+           RowBox[{
+           "chordNotesArr", ",", " ", "minNote", ",", " ", "majNote"}], "]"}],
+           " ", "\[Equal]", " ", "\"\<Major\>\""}], ",", 
+         "\[IndentingNewLine]", "\t\t\t\t\t", 
+         RowBox[{"(*", "TrueCase", "*)"}], "\[IndentingNewLine]", 
+         "\t\t\t\t\t", 
+         RowBox[{
+          RowBox[{"tmp", " ", "=", " ", 
+           RowBox[{"\"\<\>\"", " ", "<>", " ", "toneNote"}]}], ";", 
+          "\[IndentingNewLine]", "\t\t\t\t\t", 
+          RowBox[{"tmp", " ", "=", " ", 
+           RowBox[{"chordName", " ", "<>", " ", 
+            RowBox[{"generatePostfix", "[", 
+             RowBox[{
+             "noteMap", ",", " ", "diffMapWithThree", ",", " ", "toneNote", 
+              ",", "chordNotesArr"}], "]"}]}]}]}], ",", "\[IndentingNewLine]",
+          "\t\t\t\t\t", 
+         RowBox[{"tmp", " ", "=", " ", 
+          RowBox[{"chordName", " ", "<>", " ", 
+           RowBox[{"generatePostfix", "[", 
+            RowBox[{
+            "noteMap", ",", " ", "diffMapWithoutThree", ",", " ", "toneNote", 
+             ",", "chordNotesArr"}], "]"}]}]}]}], "\[IndentingNewLine]", 
+        "]"}]}], "]"}], ";", 
+     RowBox[{"Return", "[", "tmp", "]"}]}], ")"}]}], ";"}]}], "Input",
  CellChangeTimes->{{3.92950431868498*^9, 3.929504362116259*^9}, {
    3.9295047085175366`*^9, 3.9295047095551863`*^9}, {3.9295050637092*^9, 
    3.9295050668837056`*^9}, 3.929752805435166*^9, {3.9356631929767447`*^9, 
    3.93566338906001*^9}, {3.935674535734434*^9, 3.9356745631198254`*^9}, {
-   3.9356745945169773`*^9, 3.9356746416439857`*^9}},
- CellLabel->"In[19]:=",ExpressionUUID->"ba0eebbe-c8c6-4f47-9e80-4894c51911f0"],
+   3.9356745945169773`*^9, 3.9356746416439857`*^9}, {3.9357520416706953`*^9, 
+   3.935752164182208*^9}, {3.935752830007078*^9, 3.935752847752221*^9}, {
+   3.93575292661594*^9, 3.9357529349031453`*^9}, {3.935752966470463*^9, 
+   3.935753028118759*^9}, {3.935753076838176*^9, 3.935753135058112*^9}, {
+   3.935753184273184*^9, 3.9357531916079216`*^9}, {3.9357534640641327`*^9, 
+   3.935753520689849*^9}, {3.935753577134467*^9, 3.9357535868538094`*^9}, 
+   3.93575524672013*^9, {3.9357555402404685`*^9, 3.9357555666941485`*^9}, {
+   3.9357556137436843`*^9, 3.9357556553431425`*^9}, {3.9357558402413087`*^9, 
+   3.9357559463190794`*^9}, {3.9357565885825253`*^9, 3.935756593687928*^9}, {
+   3.9357568118310504`*^9, 3.935756832614667*^9}, {3.9357568804638615`*^9, 
+   3.9357568883424644`*^9}, {3.9357569893051386`*^9, 
+   3.9357571306716394`*^9}, {3.9357571776242323`*^9, 3.935757195264329*^9}, {
+   3.9357572310888042`*^9, 
+   3.935757247291337*^9}},ExpressionUUID->"ba0eebbe-c8c6-4f47-9e80-\
+4894c51911f0"],
 
 Cell[CellGroupData[{
 
@@ -364,7 +482,7 @@ Cell[BoxData[
    3.929668921174136*^9}, {3.929668967430444*^9, 3.9296690874773808`*^9}, 
    3.9296692713738623`*^9, 3.929670544366053*^9, {3.929697324216053*^9, 
    3.9296973245850573`*^9}, 3.9297528118743467`*^9},
- CellLabel->"In[15]:=",ExpressionUUID->"9ca62976-3e7c-4c00-afb0-0e7f285c78a1"],
+ CellLabel->"In[17]:=",ExpressionUUID->"9ca62976-3e7c-4c00-afb0-0e7f285c78a1"],
 
 Cell[BoxData[""], "Print",
  GeneratedCell->False,
@@ -383,7 +501,8 @@ Cell[BoxData[
    RowBox[{"{", 
     RowBox[{
     "toneVal", ",", " ", "majNote", ",", " ", "minNote", ",", " ", "noteMap", 
-     ",", "soundSequence", ",", "sound"}], "}"}], ",", "\[IndentingNewLine]", 
+     ",", "soundSequence", ",", "sound", ",", "chordName"}], "}"}], ",", 
+   "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"noteMap", " ", "=", " ", "classicNoteMap"}], ";", 
     "\[IndentingNewLine]", 
@@ -400,22 +519,93 @@ Cell[BoxData[
          RowBox[{"Row", "[", 
           RowBox[{"{", 
            RowBox[{
+            RowBox[{"Style", "[", "\"\<tone\>\"", "]"}], ",", 
+            RowBox[{"Spacer", "[", "5", "]"}], ",", " ", 
+            RowBox[{"Dynamic", "[", "toneNote", "]"}]}], "}"}], "]"}], ",", 
+         RowBox[{"Row", "[", 
+          RowBox[{"{", 
+           RowBox[{
             RowBox[{"Style", "[", 
              RowBox[{
               RowBox[{"Dynamic", "[", "chordName", "]"}], ",", " ", 
               RowBox[{"FontSize", "\[Rule]", "50"}]}], "]"}], ",", 
             RowBox[{"Spacer", "[", "125", "]"}], ",", 
             RowBox[{"Row", "[", 
-             RowBox[{"{", 
+             RowBox[{"{", "\[IndentingNewLine]", 
               RowBox[{
                RowBox[{"Button", "[", 
-                RowBox[{"\"\<Classic\>\"", ",", " ", 
-                 RowBox[{"noteMap", " ", "=", " ", "classicNoteMap"}]}], 
-                "]"}], ",", 
+                RowBox[{"\"\<Classic\>\"", ",", " ", "\[IndentingNewLine]", 
+                 RowBox[{"If", "[", 
+                  RowBox[{
+                   RowBox[{
+                   "noteMap", " ", "\[NotEqual]", " ", "classicNoteMap"}], 
+                   ",", "\[IndentingNewLine]", 
+                   RowBox[{
+                    RowBox[{"noteMap", " ", "=", " ", "classicNoteMap"}], ";",
+                     "\[IndentingNewLine]", 
+                    RowBox[{"toneConverter", "[", 
+                    RowBox[{"noteMap", ",", " ", "americanNoteMap"}], "]"}], 
+                    ";", "\[IndentingNewLine]", 
+                    RowBox[{"chordNotesArr", " ", "=", " ", 
+                    RowBox[{"sequenceConverter", "[", 
+                    RowBox[{
+                    "chordNotesArr", ",", "noteMap", ",", " ", 
+                    "americanNoteMap"}], "]"}]}], ";", "\[IndentingNewLine]", 
+                    RowBox[{"majNote", " ", "=", " ", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"PositionIndex", "[", "noteMap", "]"}], "[", 
+                    RowBox[{"toneVal", " ", "+", " ", "4"}], "]"}], " ", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}]}], ";", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"minNote", " ", "=", " ", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"PositionIndex", "[", "noteMap", "]"}], "[", 
+                    RowBox[{"toneVal", " ", "+", " ", "3"}], "]"}], " ", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}]}], ";", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"chordName", " ", "=", " ", 
+                    RowBox[{"createChordName", "[", 
+                    RowBox[{"noteMap", ",", "minNote", ",", "majNote"}], 
+                    "]"}]}]}]}], "]"}]}], "]"}], ",", "\[IndentingNewLine]", 
                RowBox[{"Button", "[", 
-                RowBox[{"\"\<Western\>\"", ",", 
-                 RowBox[{"noteMap", " ", "=", " ", "americanNoteMap"}]}], 
-                "]"}]}], "}"}], "]"}]}], "}"}], "]"}], ",", 
+                RowBox[{"\"\<Western\>\"", ",", "\[IndentingNewLine]", 
+                 RowBox[{"If", "[", 
+                  RowBox[{
+                   RowBox[{
+                   "noteMap", " ", "\[NotEqual]", " ", "americanNoteMap"}], 
+                   ",", "\[IndentingNewLine]", 
+                   RowBox[{
+                    RowBox[{"noteMap", " ", "=", " ", "americanNoteMap"}], 
+                    ";", "\[IndentingNewLine]", 
+                    RowBox[{"toneConverter", "[", 
+                    RowBox[{"noteMap", ",", " ", "classicNoteMap"}], "]"}], 
+                    ";", "\[IndentingNewLine]", 
+                    RowBox[{"chordNotesArr", " ", "=", " ", 
+                    RowBox[{"sequenceConverter", "[", 
+                    RowBox[{
+                    "chordNotesArr", ",", " ", "noteMap", ",", " ", 
+                    "classicNoteMap"}], "]"}]}], ";", "\[IndentingNewLine]", 
+                    RowBox[{"majNote", " ", "=", " ", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"PositionIndex", "[", "noteMap", "]"}], "[", 
+                    RowBox[{"toneVal", " ", "+", " ", "4"}], "]"}], " ", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}]}], ";", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"minNote", " ", "=", " ", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"PositionIndex", "[", "noteMap", "]"}], "[", 
+                    RowBox[{"toneVal", " ", "+", " ", "3"}], "]"}], " ", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}]}], ";", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"chordName", " ", "=", " ", 
+                    RowBox[{"createChordName", "[", 
+                    RowBox[{"noteMap", ",", "minNote", ",", "majNote"}], 
+                    "]"}]}]}]}], "]"}]}], "]"}]}], "}"}], "]"}]}], "}"}], 
+          "]"}], ",", 
          RowBox[{"InputField", "[", 
           RowBox[{
            RowBox[{"Dynamic", "[", "toneNote", "]"}], ",", "String", ",", " ", 
@@ -467,51 +657,10 @@ Cell[BoxData[
              RowBox[{"StringSplit", "[", 
               RowBox[{"chordNotesStr", ",", " ", "\"\<,\>\""}], "]"}]}], ";", 
             "\[IndentingNewLine]", 
-            RowBox[{"If", "[", 
-             RowBox[{
-              RowBox[{
-               RowBox[{"isMinor", "[", 
-                RowBox[{
-                "chordNotesArr", ",", " ", "minNote", ",", " ", "majNote"}], 
-                "]"}], " ", "\[Equal]", " ", "\"\<Minor\>\""}], ",", " ", 
-              "\[IndentingNewLine]", 
-              RowBox[{"(*", "TrueCase", "*)"}], "\[IndentingNewLine]", 
-              RowBox[{
-               RowBox[{"chordName", " ", "=", " ", 
-                RowBox[{"chordName", " ", "<>", " ", "\"\<m\>\""}]}], ";", 
-               "\[IndentingNewLine]", 
-               RowBox[{"chordName", " ", "=", " ", 
-                RowBox[{"chordName", " ", "<>", " ", 
-                 RowBox[{"generatePostfix", "[", 
-                  RowBox[{
-                  "noteMap", ",", " ", "diffMapWithThree", ",", " ", 
-                   "toneNote", ",", "chordNotesArr"}], "]"}]}]}]}], ",", 
-              "\[IndentingNewLine]", "  ", 
-              RowBox[{"(*", "FalseCase", "*)"}], "\[IndentingNewLine]", 
-              RowBox[{"If", "[", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{"SequenceScanner`isMinor", "[", 
-                  RowBox[{
-                  "chordNotesArr", ",", " ", "minNote", ",", " ", "majNote"}],
-                   "]"}], " ", "\[Equal]", " ", "\"\<Major\>\""}], ",", 
-                "\[IndentingNewLine]", 
-                RowBox[{"(*", "TrueCase", "*)"}], "\[IndentingNewLine]", 
-                RowBox[{"chordName", " ", "=", " ", 
-                 RowBox[{"chordName", " ", "<>", " ", 
-                  RowBox[{"generatePostfix", "[", 
-                   RowBox[{
-                   "noteMap", ",", " ", "diffMapWithThree", ",", " ", 
-                    "toneNote", ",", "chordNotesArr"}], "]"}]}]}], ",", 
-                "\[IndentingNewLine]", 
-                RowBox[{"chordName", " ", "=", " ", 
-                 RowBox[{"chordName", " ", "<>", " ", 
-                  RowBox[{"generatePostfix", "[", 
-                   RowBox[{
-                   "noteMap", ",", " ", "diffMapWithoutThree", ",", " ", 
-                    "toneNote", ",", "chordNotesArr"}], "]"}]}]}]}], 
-               "\[IndentingNewLine]", "]"}]}], "]"}], ";", 
-            "\[IndentingNewLine]", 
+            RowBox[{"chordName", " ", "=", " ", 
+             RowBox[{"createChordName", "[", 
+              RowBox[{"noteMap", ",", " ", "minNote", ",", " ", "majNote"}], 
+              "]"}]}], ";", "\[IndentingNewLine]", 
             RowBox[{"If", "[", 
              RowBox[{
               RowBox[{
@@ -525,12 +674,14 @@ Cell[BoxData[
                    RowBox[{"noteMap", ",", "chordNotesArr"}], "]"}], ",", " ",
                    "1", ",", " ", "\"\<Harpsichord\>\""}], "]"}], "]"}]}]}], 
              "]"}], ";"}]}], "]"}], ",", "\[IndentingNewLine]", 
-         RowBox[{"Dynamic", "[", "sound", "]"}], ",", "\[IndentingNewLine]", 
-         RowBox[{"Button", "[", 
-          RowBox[{"\"\<Clear Notes\>\"", ",", 
-           RowBox[{"chordNotesArr", "=", " ", 
-            RowBox[{"{", "}"}]}]}], "]"}]}], "\[IndentingNewLine]", "}"}], 
-       "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         RowBox[{"Dynamic", "[", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"Length", "[", "chordNotesArr", "]"}], "\[NotEqual]", 
+             " ", "0"}], ",", 
+            RowBox[{"Dynamic", "[", "sound", "]"}]}], "]"}], "]"}]}], 
+        "\[IndentingNewLine]", "}"}], "\[IndentingNewLine]", 
        "\[IndentingNewLine]", "\[IndentingNewLine]", "]"}], ",", 
       "\[IndentingNewLine]", 
       RowBox[{"Background", "\[Rule]", " ", 
@@ -598,33 +749,81 @@ Cell[BoxData[
    3.9300976602646284`*^9, 3.9300977582233114`*^9}, {3.9300978162224913`*^9, 
    3.930097863126266*^9}, {3.9300979660149717`*^9, 3.9300980046622157`*^9}, {
    3.931041587647807*^9, 3.931041606263994*^9}, {3.9356631135666947`*^9, 
-   3.935663159868891*^9}},
- CellLabel->"In[23]:=",ExpressionUUID->"27ea4664-9c81-419c-a673-62080361f0ad"],
+   3.935663159868891*^9}, {3.935751894345736*^9, 3.935751923735697*^9}, {
+   3.9357519624489884`*^9, 3.935751964607831*^9}, 3.9357520493760185`*^9, 
+   3.9357520911864915`*^9, {3.935752176631464*^9, 3.935752194146882*^9}, {
+   3.935752371015025*^9, 3.935752469823619*^9}, {3.9357525408165913`*^9, 
+   3.935752546766634*^9}, {3.9357526192968082`*^9, 3.935752741894905*^9}, {
+   3.9357527894700613`*^9, 3.935752800024687*^9}, {3.9357528563909187`*^9, 
+   3.9357528872954063`*^9}, {3.9357529409994087`*^9, 3.935752955203084*^9}, 
+   3.9357530716590815`*^9, {3.9357532110473804`*^9, 3.9357533393166585`*^9}, {
+   3.9357534434489594`*^9, 3.935753446979328*^9}, {3.9357535283995595`*^9, 
+   3.93575354147211*^9}, {3.935753614113905*^9, 3.9357536166554112`*^9}, {
+   3.935755046688571*^9, 3.9357550834245033`*^9}, {3.935755115080121*^9, 
+   3.9357551276960144`*^9}, 3.935755595339465*^9, {3.9357556823047094`*^9, 
+   3.9357556849037943`*^9}, {3.935755749297045*^9, 3.9357558196319547`*^9}, {
+   3.9357559529287443`*^9, 3.935755971144745*^9}, {3.9357564308981423`*^9, 
+   3.935756437145042*^9}, {3.9357572599764194`*^9, 3.935757419390973*^9}, {
+   3.9357574901836114`*^9, 3.9357575313796587`*^9}},
+ CellLabel->"In[56]:=",ExpressionUUID->"27ea4664-9c81-419c-a673-62080361f0ad"],
 
 Cell[BoxData[
- DynamicModuleBox[{$CellContext`toneVal$$ = 0, $CellContext`majNote$$ = 
-  "Mi", $CellContext`minNote$$ = "Re#", $CellContext`noteMap$$ = Association[
-  "Do" -> 0, "Do#" -> 1, "Re" -> 2, "Re#" -> 3, "Mi" -> 4, "Fa" -> 5, "Fa#" -> 
-   6, "Sol" -> 7, "Sol#" -> 8, "La" -> 9, "La#" -> 10, "Si" -> 
-   11], $CellContext`soundSequence$$, $CellContext`sound$$ = Sound[
-   SoundNote[{0, 2, 7}, 1, "Harpsichord"]]}, 
+ DynamicModuleBox[{$CellContext`toneVal$$, $CellContext`majNote$$ = 
+  "KeyAbsent", $CellContext`minNote$$ = "KeyAbsent", $CellContext`noteMap$$ = 
+  Association[
+  "C" -> 0, "C#" -> 1, "D" -> 2, "D#" -> 3, "E" -> 4, "F" -> 5, "F#" -> 6, 
+   "G" -> 7, "G#" -> 8, "A" -> 9, "A#" -> 10, "B" -> 
+   11], $CellContext`soundSequence$$, $CellContext`sound$$, \
+$CellContext`chordName$$ = "Dosus2"}, 
   PanelBox[
    TagBox[GridBox[{
       {
+       TemplateBox[{
+        StyleBox["\"tone\"", StripOnInput -> False],
+         TemplateBox[{5}, "Spacer1"],DynamicBox[
+          ToBoxes[$CellContext`toneNote, StandardForm]]},
+        "RowDefault"]},
+      {
        TemplateBox[{StyleBox[
           DynamicBox[
-           ToBoxes[$CellContext`chordName, StandardForm]], FontSize -> 50, 
+           ToBoxes[$CellContext`chordName$$, StandardForm]], FontSize -> 50, 
           StripOnInput -> False],TemplateBox[{125}, "Spacer1"],TemplateBox[{
            ButtonBox[
-           "\"Classic\"", 
-            ButtonFunction :> ($CellContext`noteMap$$ = \
-$CellContext`classicNoteMap), Appearance -> Automatic, Evaluator -> Automatic,
-             Method -> "Preemptive"], 
+           "\"Classic\"", ButtonFunction :> 
+            If[$CellContext`noteMap$$ != $CellContext`classicNoteMap, \
+$CellContext`noteMap$$ = $CellContext`classicNoteMap; \
+$CellContext`toneConverter[$CellContext`noteMap$$, \
+$CellContext`americanNoteMap]; $CellContext`chordNotesArr = \
+$CellContext`sequenceConverter[$CellContext`chordNotesArr, \
+$CellContext`noteMap$$, $CellContext`americanNoteMap]; $CellContext`majNote$$ = 
+               Part[
+                 
+                 PositionIndex[$CellContext`noteMap$$][$CellContext`toneVal$$ + 
+                  4], 1]; $CellContext`minNote$$ = Part[
+                 
+                 PositionIndex[$CellContext`noteMap$$][$CellContext`toneVal$$ + 
+                  3], 1]; $CellContext`chordName$$ = \
+$CellContext`createChordName[$CellContext`noteMap$$, $CellContext`minNote$$, \
+$CellContext`majNote$$]], Appearance -> Automatic, Evaluator -> Automatic, 
+            Method -> "Preemptive"], 
            ButtonBox[
-           "\"Western\"", 
-            ButtonFunction :> ($CellContext`noteMap$$ = \
-$CellContext`americanNoteMap), Appearance -> Automatic, Evaluator -> 
-            Automatic, Method -> "Preemptive"]}, "RowDefault"]},
+           "\"Western\"", ButtonFunction :> 
+            If[$CellContext`noteMap$$ != $CellContext`americanNoteMap, \
+$CellContext`noteMap$$ = $CellContext`americanNoteMap; \
+$CellContext`toneConverter[$CellContext`noteMap$$, \
+$CellContext`classicNoteMap]; $CellContext`chordNotesArr = \
+$CellContext`sequenceConverter[$CellContext`chordNotesArr, \
+$CellContext`noteMap$$, $CellContext`classicNoteMap]; $CellContext`majNote$$ = 
+               Part[
+                 
+                 PositionIndex[$CellContext`noteMap$$][$CellContext`toneVal$$ + 
+                  4], 1]; $CellContext`minNote$$ = Part[
+                 
+                 PositionIndex[$CellContext`noteMap$$][$CellContext`toneVal$$ + 
+                  3], 1]; $CellContext`chordName$$ = \
+$CellContext`createChordName[$CellContext`noteMap$$, $CellContext`minNote$$, \
+$CellContext`majNote$$]], Appearance -> Automatic, Evaluator -> Automatic, 
+            Method -> "Preemptive"]}, "RowDefault"]},
         "RowDefault"]},
       {
        InputFieldBox[Dynamic[$CellContext`toneNote], String,
@@ -643,33 +842,16 @@ $CellContext`americanNoteMap), Appearance -> Automatic, Evaluator ->
         Appearance->Automatic,
         ButtonFunction:>($CellContext`toneVal$$ = 
           Part[$CellContext`noteMap$$, $CellContext`toneNote]; \
-$CellContext`chordName = 
+$CellContext`chordName$$ = 
           StringJoin["", $CellContext`toneNote]; $CellContext`majNote$$ = Part[
             PositionIndex[$CellContext`noteMap$$][$CellContext`toneVal$$ + 4],
              1]; $CellContext`minNote$$ = Part[
             PositionIndex[$CellContext`noteMap$$][$CellContext`toneVal$$ + 3],
              1]; $CellContext`chordNotesArr = 
-          StringSplit[$CellContext`chordNotesStr, ","]; 
-         If[$CellContext`isMinor[$CellContext`chordNotesArr, \
-$CellContext`minNote$$, $CellContext`majNote$$] == 
-           "Minor", $CellContext`chordName = 
-            StringJoin[$CellContext`chordName, "m"]; $CellContext`chordName = 
-            StringJoin[$CellContext`chordName, 
-              $CellContext`generatePostfix[$CellContext`noteMap$$, \
-$CellContext`diffMapWithThree, $CellContext`toneNote, \
-$CellContext`chordNotesArr]], 
-           If[
-           SequenceScanner`isMinor[$CellContext`chordNotesArr, \
-$CellContext`minNote$$, $CellContext`majNote$$] == 
-            "Major", $CellContext`chordName = 
-            StringJoin[$CellContext`chordName, 
-              $CellContext`generatePostfix[$CellContext`noteMap$$, \
-$CellContext`diffMapWithThree, $CellContext`toneNote, \
-$CellContext`chordNotesArr]], $CellContext`chordName = 
-            StringJoin[$CellContext`chordName, 
-              $CellContext`generatePostfix[$CellContext`noteMap$$, \
-$CellContext`diffMapWithoutThree, $CellContext`toneNote, \
-$CellContext`chordNotesArr]]]]; 
+          StringSplit[$CellContext`chordNotesStr, 
+            ","]; $CellContext`chordName$$ = \
+$CellContext`createChordName[$CellContext`noteMap$$, $CellContext`minNote$$, \
+$CellContext`majNote$$]; 
          If[Length[$CellContext`chordNotesArr] != 0, $CellContext`sound$$ = 
            Sound[
              SoundNote[
@@ -678,14 +860,10 @@ $CellContext`chordNotesArr], 1, "Harpsichord"]]]; Null),
         Evaluator->Automatic,
         Method->"Preemptive"]},
       {
-       DynamicBox[ToBoxes[$CellContext`sound$$, StandardForm],
-        ImageSizeCache->{250., {55., 60.}}]},
-      {
-       ButtonBox["\<\"Clear Notes\"\>",
-        Appearance->Automatic,
-        ButtonFunction:>($CellContext`chordNotesArr = {}),
-        Evaluator->Automatic,
-        Method->"Preemptive"]}
+       DynamicBox[ToBoxes[
+         If[Length[$CellContext`chordNotesArr] != 0, 
+          Dynamic[$CellContext`sound$$]], StandardForm],
+        ImageSizeCache->{22., {0., 9.}}]}
      },
      DefaultBaseStyle->"Column",
      GridBoxAlignment->{"Columns" -> {{Left}}},
@@ -693,28 +871,16 @@ $CellContext`chordNotesArr], 1, "Harpsichord"]]]; Null),
     "Column"],
    Background->RGBColor[0.925, 0.925, 0.925]],
   DynamicModuleValues:>{}]], "Output",
- CellChangeTimes->{3.935663064431772*^9, 3.9356746532091317`*^9},
- CellLabel->"Out[23]=",ExpressionUUID->"8ca570a2-ed45-446f-8da4-da67ecf895e9"],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"{", "0", "}"}]], "Print",
- CellChangeTimes->{3.935674656598734*^9},
- CellLabel->"",ExpressionUUID->"ff5a3e0d-7a72-47cb-90b0-b86ad2cb6578"],
-
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{"0", ",", "2"}], "}"}]], "Print",
- CellChangeTimes->{3.9356746566017284`*^9},
- CellLabel->"",ExpressionUUID->"563fc8a0-1ff5-4f6c-a1f1-9b02e0dcc2ec"],
-
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{"0", ",", "2", ",", "7"}], "}"}]], "Print",
- CellChangeTimes->{3.9356746566037364`*^9},
- CellLabel->"",ExpressionUUID->"2ea7b2a1-f573-4c23-aa49-bc60d279a275"]
-}, Open  ]]
+ CellChangeTimes->{
+  3.935663064431772*^9, 3.9356746532091317`*^9, {3.935752472008445*^9, 
+   3.93575249750023*^9}, 3.935752562415738*^9, 3.9357533482913275`*^9, 
+   3.935753542692833*^9, 3.9357535957136126`*^9, 3.9357536289115744`*^9, 
+   3.9357541829433393`*^9, 3.9357551403686953`*^9, {3.935755262563795*^9, 
+   3.935755280677555*^9}, 3.935755439029126*^9, 3.9357555709757013`*^9, {
+   3.935755669646574*^9, 3.9357556855574465`*^9}, 3.9357558220233197`*^9, 
+   3.9357559299351025`*^9, 3.935755975855316*^9, 3.935756445322281*^9, 
+   3.935757536705806*^9},
+ CellLabel->"Out[56]=",ExpressionUUID->"ad1b1430-10d0-41cc-92c0-7cd7d363ad8e"]
 }, Open  ]]
 }, Open  ]]
 },
@@ -743,20 +909,15 @@ Cell[1421, 43, 74, 0, 67, "Section",ExpressionUUID->"2befd8ce-cff6-4e7d-a2b4-7f2
 Cell[1498, 45, 5234, 103, 884, "Input",ExpressionUUID->"31c0483f-6b65-4f0d-99e8-7a877d531af6"],
 Cell[6735, 150, 1670, 34, 238, "Input",ExpressionUUID->"a9dfb681-8431-4196-9a48-5a4596df912b"],
 Cell[8408, 186, 174, 2, 28, "Input",ExpressionUUID->"b99b4609-37e9-497e-b125-7857c2024726"],
-Cell[8585, 190, 967, 21, 105, "Input",ExpressionUUID->"4ee74136-1d10-48d6-a04b-c17eba218843"],
-Cell[9555, 213, 5478, 139, 162, "Input",ExpressionUUID->"ba0eebbe-c8c6-4f47-9e80-4894c51911f0"],
+Cell[8585, 190, 972, 21, 105, "Input",ExpressionUUID->"4ee74136-1d10-48d6-a04b-c17eba218843"],
+Cell[9560, 213, 10612, 257, 447, "Input",ExpressionUUID->"ba0eebbe-c8c6-4f47-9e80-4894c51911f0"],
 Cell[CellGroupData[{
-Cell[15058, 356, 707, 10, 67, "Input",ExpressionUUID->"9ca62976-3e7c-4c00-afb0-0e7f285c78a1"],
-Cell[15768, 368, 283, 6, 22, "Print",ExpressionUUID->"104e97ec-6973-4275-9240-389ed79e8492"]
+Cell[20197, 474, 707, 10, 67, "Input",ExpressionUUID->"9ca62976-3e7c-4c00-afb0-0e7f285c78a1"],
+Cell[20907, 486, 283, 6, 22, "Print",ExpressionUUID->"104e97ec-6973-4275-9240-389ed79e8492"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[16088, 379, 12124, 222, 713, "Input",ExpressionUUID->"27ea4664-9c81-419c-a673-62080361f0ad"],
-Cell[28215, 603, 4310, 93, 334, "Output",ExpressionUUID->"8ca570a2-ed45-446f-8da4-da67ecf895e9"],
-Cell[CellGroupData[{
-Cell[32550, 700, 162, 3, 22, "Print",ExpressionUUID->"ff5a3e0d-7a72-47cb-90b0-b86ad2cb6578"],
-Cell[32715, 705, 187, 4, 22, "Print",ExpressionUUID->"563fc8a0-1ff5-4f6c-a1f1-9b02e0dcc2ec"],
-Cell[32905, 711, 197, 4, 22, "Print",ExpressionUUID->"2ea7b2a1-f573-4c23-aa49-bc60d279a275"]
-}, Open  ]]
+Cell[21227, 497, 15049, 270, 770, "Input",ExpressionUUID->"27ea4664-9c81-419c-a673-62080361f0ad"],
+Cell[36279, 769, 5464, 113, 251, "Output",ExpressionUUID->"ad1b1430-10d0-41cc-92c0-7cd7d363ad8e"]
 }, Open  ]]
 }, Open  ]]
 }
