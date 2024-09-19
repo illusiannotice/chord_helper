@@ -1,0 +1,749 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     34189,        741]
+NotebookOptionsPosition[     32531,        707]
+NotebookOutlinePosition[     32873,        722]
+CellTagsIndexPosition[     32830,        719]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Introduction", "Title",
+ CellChangeTimes->{{3.935674716692214*^9, 
+  3.935674729164589*^9}},ExpressionUUID->"676ca984-1301-47bd-9f0f-\
+25b76682c41a"],
+
+Cell["", "Text",
+ CellChangeTimes->{{3.9356747620371876`*^9, 
+  3.9356747651961102`*^9}},ExpressionUUID->"3ec060ed-1d3c-4a30-a9ac-\
+9f35f513e46b"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"classicNoteMap", " ", "=", " ", 
+   RowBox[{"<|", 
+    RowBox[{
+     RowBox[{"\"\<Do\>\"", " ", "\[Rule]", " ", "0"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<Do#\>\"", "\[Rule]", " ", "1"}], ",", "\[IndentingNewLine]",
+      " ", 
+     RowBox[{"\"\<Re\>\"", "\[Rule]", " ", "2"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"\"\<Re#\>\"", "\[Rule]", " ", "3"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"\"\<Mi\>\"", "\[Rule]", "4"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"\"\<Fa\>\"", "\[Rule]", " ", "5"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"\"\<Fa#\>\"", "\[Rule]", " ", "6"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"\"\<Sol\>\"", " ", "\[Rule]", " ", "7"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<Sol#\>\"", "\[Rule]", " ", "8"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<La\>\"", " ", "\[Rule]", " ", "9"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<La#\>\"", "\[Rule]", " ", "10"}], ",", " ", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<Si\>\"", "\[Rule]", " ", "11"}]}], "|>"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"americanNoteMap", " ", "=", " ", 
+   RowBox[{"<|", 
+    RowBox[{
+     RowBox[{"\"\<C\>\"", " ", "\[Rule]", " ", "0"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<C#\>\"", "\[Rule]", " ", "1"}], ",", "\[IndentingNewLine]", 
+     " ", 
+     RowBox[{"\"\<D\>\"", "\[Rule]", " ", "2"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"\"\<D#\>\"", "\[Rule]", " ", "3"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"\"\<E\>\"", "\[Rule]", "4"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"\"\<F\>\"", "\[Rule]", " ", "5"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"\"\<F#\>\"", "\[Rule]", " ", "6"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"\"\<G\>\"", " ", "\[Rule]", " ", "7"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<G#\>\"", "\[Rule]", " ", "8"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"\"\<A\>\"", " ", "\[Rule]", " ", "9"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<A#\>\"", "\[Rule]", " ", "10"}], ",", " ", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<B\>\"", "\[Rule]", " ", "11"}]}], "|>"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"diffMapWithThree", " ", "=", " ", 
+   RowBox[{"<|", "\[IndentingNewLine]", "\t", 
+    RowBox[{
+     RowBox[{"2", " ", "\[Rule]", " ", "\"\<add2\>\""}], ",", 
+     "\[IndentingNewLine]", "\t", 
+     RowBox[{"3", "\[Rule]", " ", "\"\<\>\""}], ",", "\[IndentingNewLine]", 
+     "\t", 
+     RowBox[{"4", "\[Rule]", " ", "\"\<\>\""}], ",", "\[IndentingNewLine]", 
+     "\t", 
+     RowBox[{"5", " ", "\[Rule]", " ", "\"\<add4\>\""}], ",", 
+     "\[IndentingNewLine]", "\t", 
+     RowBox[{"6", "\[Rule]", " ", "\"\<dim\>\""}], ",", "\[IndentingNewLine]",
+      "\t", 
+     RowBox[{"7", "\[Rule]", " ", "\"\<\>\""}], ",", "\[IndentingNewLine]", 
+     "\t", 
+     RowBox[{"8", " ", "\[Rule]", " ", "\"\<aug\>\""}], ",", 
+     "\[IndentingNewLine]", "\t", 
+     RowBox[{"9", "\[Rule]", " ", "\"\<6\>\""}], ",", "\[IndentingNewLine]", 
+     "         ", 
+     RowBox[{"10", " ", "\[Rule]", " ", "\"\<7\>\""}], ",", 
+     "\[IndentingNewLine]", "\t", 
+     RowBox[{"11", "\[Rule]", " ", "\"\<maj7\>\""}]}], "\[IndentingNewLine]", 
+    "|>"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"diffMapWithoutThree", " ", "=", " ", 
+   RowBox[{"<|", "\[IndentingNewLine]", "\t", 
+    RowBox[{
+     RowBox[{"2", " ", "\[Rule]", " ", "\"\<sus2\>\""}], ",", 
+     "\[IndentingNewLine]", "\t", 
+     RowBox[{"5", " ", "\[Rule]", " ", "\"\<sus4\>\""}], ",", 
+     "\[IndentingNewLine]", "\t", 
+     RowBox[{"6", "\[Rule]", " ", "\"\<dim\>\""}], ",", "\[IndentingNewLine]",
+      "\t", 
+     RowBox[{"7", "\[Rule]", " ", "\"\<\>\""}], ",", "\[IndentingNewLine]", 
+     "\t", 
+     RowBox[{"8", " ", "\[Rule]", " ", "\"\<aug\>\""}], ",", 
+     "\[IndentingNewLine]", "\t", 
+     RowBox[{"9", "\[Rule]", " ", "\"\<6\>\""}], ",", "\[IndentingNewLine]", 
+     "         ", 
+     RowBox[{"10", " ", "\[Rule]", " ", "\"\<7\>\""}], ",", 
+     "\[IndentingNewLine]", "\t", 
+     RowBox[{"11", "\[Rule]", " ", "\"\<maj7\>\""}]}], "\[IndentingNewLine]", 
+    "|>"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.92949911032253*^9, 3.9294992057780604`*^9}, {
+   3.929503689931357*^9, 3.9295037216106014`*^9}, {3.9295037617553387`*^9, 
+   3.9295040435471325`*^9}, {3.929518589941648*^9, 3.929518610290346*^9}, {
+   3.9295186667951*^9, 3.9295186900735416`*^9}, {3.92951872245815*^9, 
+   3.9295187231295395`*^9}, {3.9295187881056557`*^9, 3.929518873785543*^9}, {
+   3.929518936322685*^9, 3.9295189753455057`*^9}, {3.9295190172656546`*^9, 
+   3.9295190857778053`*^9}, {3.929519143561764*^9, 3.929519186177273*^9}, {
+   3.929519228819542*^9, 3.929519299690629*^9}, {3.9295193462355223`*^9, 
+   3.9295193705615387`*^9}, {3.9295229134756575`*^9, 3.9295229491713543`*^9}, 
+   3.929523920061154*^9, {3.9295247918205247`*^9, 3.9295250136924324`*^9}, {
+   3.929837367730321*^9, 3.9298374523063416`*^9}, {3.929849034594089*^9, 
+   3.9298491713593493`*^9}, {3.9298544352278547`*^9, 3.92985444386058*^9}, 
+   3.929854971770062*^9, 3.930044628218773*^9},
+ CellLabel->"In[1]:=",ExpressionUUID->"31c0483f-6b65-4f0d-99e8-7a877d531af6"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"soundMap", " ", "=", " ", 
+   RowBox[{"<|", 
+    RowBox[{
+     RowBox[{"0", "\[Rule]", " ", "\"\<C\>\""}], ",", "\[IndentingNewLine]", 
+     "\t\t", 
+     RowBox[{"1", "\[Rule]", " ", "\"\<CSharp\>\""}], ",", 
+     "\[IndentingNewLine]", "\t\t", 
+     RowBox[{"2", "\[Rule]", " ", "\"\<D\>\""}], ",", "\[IndentingNewLine]", 
+     "\t\t", 
+     RowBox[{"3", "\[Rule]", " ", "\"\<DSharp\>\""}], ",", 
+     "\[IndentingNewLine]", "\t\t", 
+     RowBox[{"4", "\[Rule]", " ", "\"\<E\>\""}], ",", "\[IndentingNewLine]", 
+     "\t\t", 
+     RowBox[{"5", "\[Rule]", " ", "\"\<F\>\""}], ",", "\[IndentingNewLine]", 
+     "\t\t", 
+     RowBox[{"6", "\[Rule]", " ", "\"\<FSharp\>\""}], ",", 
+     "\[IndentingNewLine]", "\t\t", 
+     RowBox[{"7", "\[Rule]", " ", "\"\<G\>\""}], ",", "\[IndentingNewLine]", 
+     "\t\t", 
+     RowBox[{"8", "\[Rule]", " ", "\"\<GSharp\>\""}], ",", 
+     "\[IndentingNewLine]", "\t\t", 
+     RowBox[{"9", "\[Rule]", " ", "\"\<A\>\""}], ",", "\[IndentingNewLine]", 
+     "\t\t", 
+     RowBox[{"10", "\[Rule]", " ", "\"\<ASharp\>\""}], ",", 
+     "\[IndentingNewLine]", "\t\t", 
+     RowBox[{"11", "\[Rule]", " ", "\"\<B\>\""}]}], "|>"}]}], ";"}]], "Input",
+ CellChangeTimes->{
+  3.929766641917848*^9, 3.9297667520408583`*^9, {3.929849186468893*^9, 
+   3.929849186636821*^9}, {3.929850571461608*^9, 3.929850596581732*^9}, {
+   3.929851420157405*^9, 3.929851426542049*^9}, {3.929851538117793*^9, 
+   3.929851638430538*^9}, {3.9298516979184093`*^9, 3.929851833454447*^9}, 
+   3.929851874850312*^9, 3.929854434897501*^9, 3.930044377523164*^9},
+ CellLabel->"In[5]:=",ExpressionUUID->"a9dfb681-8431-4196-9a48-5a4596df912b"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.9295250371246867`*^9, 3.9295250391637154`*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"b99b4609-37e9-497e-b125-7857c2024726"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"toneNote", " ", "=", " ", "\"\<\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Dynamic", "[", "chordNotesArr", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"chordNotesArr", "=", " ", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"chordNotesStr", " ", "=", " ", "Null"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"chordName", " ", "=", " ", 
+   RowBox[{"\"\<\>\"", " ", "<>", " ", "toneNote"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.9295042445795975`*^9, 3.9295042645957193`*^9}, {
+  3.9296704144127016`*^9, 3.929670434803341*^9}, {3.9296973394810524`*^9, 
+  3.9296973451600533`*^9}, {3.929752806800619*^9, 3.929752814353649*^9}, {
+  3.929851412885128*^9, 3.929851413158588*^9}, {3.929852786565599*^9, 
+  3.92985279075541*^9}, {3.93009578408864*^9, 3.9300958106146684`*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"4ee74136-1d10-48d6-a04b-c17eba218843"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"isMinor", "[", 
+    RowBox[{"sequence_", ",", " ", "minorNote_", ",", " ", "majorNote_"}], 
+    "]"}], ":=", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"For", "[", 
+      RowBox[{
+       RowBox[{"i", " ", "=", " ", "1"}], ",", " ", 
+       RowBox[{"i", " ", "<=", " ", 
+        RowBox[{"Length", "[", "sequence", "]"}]}], ",", " ", 
+       RowBox[{"i", "++"}], ",", " ", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"sequence", "[", 
+           RowBox[{"[", "i", "]"}], "]"}], " ", "==", " ", "majorNote"}], ",",
+          " ", 
+         RowBox[{"Return", "[", "\"\<Major\>\"", "]"}], ",", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"sequence", "[", 
+             RowBox[{"[", "i", "]"}], "]"}], " ", "==", "  ", "minorNote"}], 
+           ",", " ", 
+           RowBox[{"Return", "[", "\"\<Minor\>\"", "]"}]}], "]"}]}], "]"}]}], 
+      "]"}], ";", " ", 
+     RowBox[{"Return", "[", "\"\<Nothing\>\"", "]"}]}], ")"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"generatePostfix", "[", 
+    RowBox[{
+    "noteMap_", ",", " ", "diffMap_", ",", " ", "tone_", ",", " ", 
+     "sequence_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "postfix", "}"}], ",", " ", 
+     RowBox[{
+      RowBox[{"postfix", " ", "=", " ", "\"\<\>\""}], ";", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"i", " ", "=", " ", "1"}], ",", " ", 
+        RowBox[{"i", " ", "<=", " ", 
+         RowBox[{"Length", "[", "sequence", "]"}]}], ",", " ", 
+        RowBox[{"i", "++"}], ",", " ", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"sequence", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "!=", " ", "tone"}], ",", " ", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"noteMap", "[", 
+              RowBox[{"[", 
+               RowBox[{"sequence", "[", 
+                RowBox[{"[", "i", "]"}], "]"}], "]"}], "]"}], " ", ">", " ", 
+             RowBox[{"noteMap", "[", 
+              RowBox[{"[", "tone", "]"}], "]"}]}], ",", 
+            RowBox[{"postfix", " ", "=", " ", 
+             RowBox[{"postfix", " ", "<>", " ", 
+              RowBox[{
+               RowBox[{"Key", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Key", "[", 
+                   RowBox[{"sequence", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}], "]"}], "[", "noteMap", 
+                  "]"}], "-", " ", 
+                 RowBox[{
+                  RowBox[{"Key", "[", "tone", "]"}], "[", "noteMap", "]"}]}], 
+                "]"}], "[", "diffMap", "]"}]}]}], ",", 
+            RowBox[{"postfix", " ", "=", " ", 
+             RowBox[{"postfix", " ", "<>", " ", 
+              RowBox[{
+               RowBox[{"Key", "[", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"Key", "[", 
+                    RowBox[{"sequence", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}], "]"}], "[", "noteMap", 
+                    "]"}], " ", "+", " ", "12"}], ")"}], "-", " ", 
+                 RowBox[{
+                  RowBox[{"Key", "[", "tone", "]"}], "[", "noteMap", "]"}]}], 
+                "]"}], "[", "diffMap", "]"}]}]}]}], "]"}]}], "]"}]}], "]"}], 
+      ";", 
+      RowBox[{"Return", "[", "postfix", "]"}]}]}], "]"}]}], " ", 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"isSept", "[", 
+   RowBox[{"sequence_", ",", " ", "septNote_"}], "]"}], ":=", 
+  RowBox[{"(", 
+   RowBox[{"For", "[", 
+    RowBox[{
+     RowBox[{"i", " ", "=", " ", "1"}], ",", " ", 
+     RowBox[{"i", " ", "<=", " ", 
+      RowBox[{"Length", "[", "sequence", "]"}]}], ",", " ", 
+     RowBox[{"i", "++"}], ",", " ", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"sequence", "[", 
+         RowBox[{"[", "i", "]"}], "]"}], " ", "==", " ", "septNote"}], ",", 
+       RowBox[{"Return", "[", "True", "]"}]}], "]"}]}], "]"}], 
+   ")"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"formatSequence", "[", 
+    RowBox[{"formMap_", ",", " ", "sequence_"}], "]"}], ":=", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"formated", " ", "=", " ", 
+      RowBox[{"{", "}"}]}], ";", " ", 
+     RowBox[{"For", "[", 
+      RowBox[{
+       RowBox[{"i", " ", "=", " ", "1"}], ",", " ", 
+       RowBox[{"i", " ", "<=", " ", 
+        RowBox[{"Length", "[", "sequence", "]"}]}], ",", " ", 
+       RowBox[{"i", "++"}], ",", " ", 
+       RowBox[{
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"formated", ",", " ", 
+          RowBox[{
+           RowBox[{"Key", "[", 
+            RowBox[{"Part", "[", 
+             RowBox[{"sequence", ",", " ", "i"}], "]"}], "]"}], "[", 
+           "formMap", "]"}]}], "]"}], ";", " ", 
+        RowBox[{"Print", "[", "formated", "]"}]}]}], "]"}], ";", " ", 
+     RowBox[{"Return", "[", "formated", "]"}]}], ")"}]}], " ", 
+  ";"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.92950431868498*^9, 3.929504362116259*^9}, {
+   3.9295047085175366`*^9, 3.9295047095551863`*^9}, {3.9295050637092*^9, 
+   3.9295050668837056`*^9}, 3.929752805435166*^9, {3.9356631929767447`*^9, 
+   3.93566338906001*^9}, {3.935674535734434*^9, 3.9356745631198254`*^9}, {
+   3.9356745945169773`*^9, 3.9356746416439857`*^9}},
+ CellLabel->"In[19]:=",ExpressionUUID->"ba0eebbe-c8c6-4f47-9e80-4894c51911f0"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.929504712189497*^9, 3.9295047256750975`*^9}, 
+   3.929506504926923*^9, 3.929506563941619*^9, {3.9295111481996555`*^9, 
+   3.9295112010965405`*^9}, {3.9295112409837847`*^9, 
+   3.9295112730306444`*^9}, {3.929511434398539*^9, 3.929511446359539*^9}, {
+   3.9295263831520386`*^9, 3.929526384964431*^9}, {3.9296688654458685`*^9, 
+   3.929668921174136*^9}, {3.929668967430444*^9, 3.9296690874773808`*^9}, 
+   3.9296692713738623`*^9, 3.929670544366053*^9, {3.929697324216053*^9, 
+   3.9296973245850573`*^9}, 3.9297528118743467`*^9},
+ CellLabel->"In[15]:=",ExpressionUUID->"9ca62976-3e7c-4c00-afb0-0e7f285c78a1"],
+
+Cell[BoxData[""], "Print",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{{3.929669108878987*^9, 3.9296691334881706`*^9}, {
+   3.9296692750278645`*^9, 3.9296692760359993`*^9}, 
+   3.9296866193371806`*^9},ExpressionUUID->"104e97ec-6973-4275-9240-\
+389ed79e8492"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DynamicModule", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+    "toneVal", ",", " ", "majNote", ",", " ", "minNote", ",", " ", "noteMap", 
+     ",", "soundSequence", ",", "sound"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"noteMap", " ", "=", " ", "classicNoteMap"}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"toneNote", " ", "=", " ", "\"\<Do\>\""}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"chordName", " ", "=", " ", 
+     RowBox[{"\"\<\>\"", " ", "<>", " ", "toneNote"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Panel", "[", 
+     RowBox[{
+      RowBox[{"Column", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Row", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Style", "[", 
+             RowBox[{
+              RowBox[{"Dynamic", "[", "chordName", "]"}], ",", " ", 
+              RowBox[{"FontSize", "\[Rule]", "50"}]}], "]"}], ",", 
+            RowBox[{"Spacer", "[", "125", "]"}], ",", 
+            RowBox[{"Row", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"Button", "[", 
+                RowBox[{"\"\<Classic\>\"", ",", " ", 
+                 RowBox[{"noteMap", " ", "=", " ", "classicNoteMap"}]}], 
+                "]"}], ",", 
+               RowBox[{"Button", "[", 
+                RowBox[{"\"\<Western\>\"", ",", 
+                 RowBox[{"noteMap", " ", "=", " ", "americanNoteMap"}]}], 
+                "]"}]}], "}"}], "]"}]}], "}"}], "]"}], ",", 
+         RowBox[{"InputField", "[", 
+          RowBox[{
+           RowBox[{"Dynamic", "[", "toneNote", "]"}], ",", "String", ",", " ", 
+           RowBox[{
+           "FieldHint", "\[Rule]", " ", 
+            "\"\<Enter the tone note of chord\>\""}], ",", 
+           RowBox[{"FieldSize", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"Automatic", ",", 
+              RowBox[{"{", 
+               RowBox[{"0", ",", "Infinity"}], "}"}]}], "}"}]}], ",", " ", 
+           RowBox[{"FrameMargins", "\[Rule]", "5"}]}], "  ", "]"}], ",", 
+         RowBox[{"InputField", "[", 
+          RowBox[{
+           RowBox[{"Dynamic", "[", "chordNotesStr", "]"}], ",", "String", ",", 
+           RowBox[{
+           "FieldHint", "\[Rule]", " ", 
+            "\"\<Enter the sequence of notes separeted by comma\>\""}], ",", 
+           RowBox[{"FieldSize", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"40", ",", 
+              RowBox[{"{", 
+               RowBox[{"0", ",", "Infinity"}], "}"}]}], "}"}]}], ",", " ", 
+           RowBox[{"FrameMargins", "\[Rule]", "5"}]}], "]"}], ",", 
+         "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         RowBox[{"Button", "[", 
+          RowBox[{"\"\<Submit\>\"", ",", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"toneVal", " ", "=", " ", 
+             RowBox[{"noteMap", "[", 
+              RowBox[{"[", "toneNote", "]"}], "]"}]}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"chordName", " ", "=", " ", 
+             RowBox[{"\"\<\>\"", " ", "<>", " ", "toneNote"}]}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"majNote", " ", "=", " ", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"PositionIndex", "[", "noteMap", "]"}], "[", 
+               RowBox[{"toneVal", " ", "+", " ", "4"}], "]"}], " ", "[", 
+              RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"minNote", " ", "=", " ", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"PositionIndex", "[", "noteMap", "]"}], "[", 
+               RowBox[{"toneVal", " ", "+", " ", "3"}], "]"}], " ", "[", 
+              RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"chordNotesArr", "  ", "=", " ", 
+             RowBox[{"StringSplit", "[", 
+              RowBox[{"chordNotesStr", ",", " ", "\"\<,\>\""}], "]"}]}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"isMinor", "[", 
+                RowBox[{
+                "chordNotesArr", ",", " ", "minNote", ",", " ", "majNote"}], 
+                "]"}], " ", "\[Equal]", " ", "\"\<Minor\>\""}], ",", " ", 
+              "\[IndentingNewLine]", 
+              RowBox[{"(*", "TrueCase", "*)"}], "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"chordName", " ", "=", " ", 
+                RowBox[{"chordName", " ", "<>", " ", "\"\<m\>\""}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"chordName", " ", "=", " ", 
+                RowBox[{"chordName", " ", "<>", " ", 
+                 RowBox[{"generatePostfix", "[", 
+                  RowBox[{
+                  "noteMap", ",", " ", "diffMapWithThree", ",", " ", 
+                   "toneNote", ",", "chordNotesArr"}], "]"}]}]}]}], ",", 
+              "\[IndentingNewLine]", "  ", 
+              RowBox[{"(*", "FalseCase", "*)"}], "\[IndentingNewLine]", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"SequenceScanner`isMinor", "[", 
+                  RowBox[{
+                  "chordNotesArr", ",", " ", "minNote", ",", " ", "majNote"}],
+                   "]"}], " ", "\[Equal]", " ", "\"\<Major\>\""}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"(*", "TrueCase", "*)"}], "\[IndentingNewLine]", 
+                RowBox[{"chordName", " ", "=", " ", 
+                 RowBox[{"chordName", " ", "<>", " ", 
+                  RowBox[{"generatePostfix", "[", 
+                   RowBox[{
+                   "noteMap", ",", " ", "diffMapWithThree", ",", " ", 
+                    "toneNote", ",", "chordNotesArr"}], "]"}]}]}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"chordName", " ", "=", " ", 
+                 RowBox[{"chordName", " ", "<>", " ", 
+                  RowBox[{"generatePostfix", "[", 
+                   RowBox[{
+                   "noteMap", ",", " ", "diffMapWithoutThree", ",", " ", 
+                    "toneNote", ",", "chordNotesArr"}], "]"}]}]}]}], 
+               "\[IndentingNewLine]", "]"}]}], "]"}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"Length", "[", "chordNotesArr", "]"}], "\[NotEqual]", 
+               " ", "0"}], ",", 
+              RowBox[{"sound", " ", "=", 
+               RowBox[{"Sound", "[", 
+                RowBox[{"SoundNote", "[", 
+                 RowBox[{
+                  RowBox[{"formatSequence", "[", 
+                   RowBox[{"noteMap", ",", "chordNotesArr"}], "]"}], ",", " ",
+                   "1", ",", " ", "\"\<Harpsichord\>\""}], "]"}], "]"}]}]}], 
+             "]"}], ";"}]}], "]"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"Dynamic", "[", "sound", "]"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"Button", "[", 
+          RowBox[{"\"\<Clear Notes\>\"", ",", 
+           RowBox[{"chordNotesArr", "=", " ", 
+            RowBox[{"{", "}"}]}]}], "]"}]}], "\[IndentingNewLine]", "}"}], 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", "]"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Background", "\[Rule]", " ", 
+       RowBox[{"Lighter", "[", 
+        RowBox[{"Gray", ",", " ", "0.85"}], "]"}]}]}], "\[IndentingNewLine]", 
+     "]"}]}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.929504585749032*^9, 3.929504632963253*^9}, {
+   3.9295047771567783`*^9, 3.929504779771389*^9}, {3.9295050707240777`*^9, 
+   3.9295050828226385`*^9}, {3.92950512138894*^9, 3.9295051547636576`*^9}, {
+   3.929505244566369*^9, 3.929505247786935*^9}, {3.9295053810615945`*^9, 
+   3.929505425716464*^9}, {3.9295054837414246`*^9, 3.9295054971006584`*^9}, {
+   3.9295057008695393`*^9, 3.929505743621402*^9}, {3.9295058213506503`*^9, 
+   3.929505827965811*^9}, {3.9295058902619247`*^9, 3.9295059681718616`*^9}, {
+   3.9295061297639027`*^9, 3.929506157484576*^9}, {3.9295062550046387`*^9, 
+   3.929506282727145*^9}, {3.9295065400133233`*^9, 3.9295065573821487`*^9}, {
+   3.9295099427436543`*^9, 3.9295099809025393`*^9}, {3.92951071087253*^9, 
+   3.929510720454539*^9}, {3.929525578150381*^9, 3.9295255908208065`*^9}, {
+   3.929525790773325*^9, 3.9295258339605436`*^9}, {3.929525880101204*^9, 
+   3.9295259260126963`*^9}, {3.9295263695016565`*^9, 
+   3.9295263969084263`*^9}, {3.9296692973255*^9, 3.929669341644801*^9}, {
+   3.9296702811004314`*^9, 3.9296704048760033`*^9}, {3.9296704610931053`*^9, 
+   3.9296704656064725`*^9}, {3.9296705317090597`*^9, 
+   3.9296705376771193`*^9}, {3.92967057859661*^9, 3.929670678901256*^9}, {
+   3.929673356036922*^9, 3.9296734196833487`*^9}, 3.9296734724846897`*^9, {
+   3.929673739494274*^9, 3.9296737728686404`*^9}, {3.929673828332143*^9, 
+   3.9296738418682027`*^9}, {3.9296739051402526`*^9, 
+   3.9296740300041904`*^9}, {3.9296741045072393`*^9, 3.9296741314519*^9}, {
+   3.929674176013034*^9, 3.929674235901779*^9}, {3.9296742756538715`*^9, 
+   3.929674367245721*^9}, {3.929674507236453*^9, 3.9296745080600085`*^9}, {
+   3.9296969680487556`*^9, 3.929697141296253*^9}, {3.9296971714082527`*^9, 
+   3.9296972363922443`*^9}, 3.9296973229320517`*^9, {3.929746412463709*^9, 
+   3.9297464452627096`*^9}, {3.9297472672448845`*^9, 
+   3.9297472972048006`*^9}, {3.929747339454427*^9, 3.9297473667476606`*^9}, 
+   3.929748168274966*^9, {3.929748289082592*^9, 3.929748308417204*^9}, {
+   3.929752307764595*^9, 3.929752321347336*^9}, {3.929838304741005*^9, 
+   3.9298383564903555`*^9}, {3.929850624363803*^9, 3.929850757883128*^9}, {
+   3.929850861651657*^9, 3.9298508620710773`*^9}, 3.929850939550145*^9, {
+   3.929851095187079*^9, 3.9298511450887127`*^9}, {3.929851182818494*^9, 
+   3.929851188523185*^9}, {3.929851311107998*^9, 3.929851394179277*^9}, {
+   3.929852100619445*^9, 3.9298521600201883`*^9}, {3.9298521910835323`*^9, 
+   3.9298522023988*^9}, {3.9298526093373613`*^9, 3.929852761078899*^9}, {
+   3.929852796801111*^9, 3.9298528942570543`*^9}, {3.929852936734147*^9, 
+   3.929852981728045*^9}, {3.929853091265758*^9, 3.929853159557232*^9}, {
+   3.9298531972232113`*^9, 3.929853242722611*^9}, 3.929853277839726*^9, {
+   3.9298533391993313`*^9, 3.929853375027404*^9}, {3.929853528160446*^9, 
+   3.929853631883746*^9}, {3.929854019813641*^9, 3.929854082603745*^9}, {
+   3.929854340635524*^9, 3.929854392501574*^9}, {3.929854481430592*^9, 
+   3.929854488974072*^9}, {3.929854828567111*^9, 3.929854841229933*^9}, {
+   3.9298549314467487`*^9, 3.929854944377563*^9}, {3.929854998558982*^9, 
+   3.92985507552464*^9}, {3.929855106238407*^9, 3.929855113247156*^9}, {
+   3.9300441580812993`*^9, 3.9300441654029846`*^9}, {3.9300448307149134`*^9, 
+   3.9300449308683476`*^9}, {3.930044975060001*^9, 3.930045063731593*^9}, {
+   3.930045187557005*^9, 3.9300451923223333`*^9}, {3.930045430388995*^9, 
+   3.9300454391869473`*^9}, {3.930045571320706*^9, 3.9300455755005636`*^9}, {
+   3.9300456528287926`*^9, 3.930045706478754*^9}, {3.9300461235641384`*^9, 
+   3.9300461512355337`*^9}, {3.930046184838062*^9, 3.930046200844639*^9}, {
+   3.9300464495018406`*^9, 3.930046456602676*^9}, 3.9300468705401115`*^9, {
+   3.930046991196329*^9, 3.9300469972195635`*^9}, {3.93009577096548*^9, 
+   3.9300957777824454`*^9}, {3.930095823023782*^9, 3.930095830486638*^9}, {
+   3.9300958968418984`*^9, 3.9300959061845827`*^9}, {3.9300959394174185`*^9, 
+   3.9300959586797743`*^9}, {3.9300960145046597`*^9, 3.9300960155425653`*^9}, 
+   3.93009605709509*^9, {3.930096666433015*^9, 3.9300967666227903`*^9}, {
+   3.930096808382539*^9, 3.9300968181665645`*^9}, {3.9300969446879034`*^9, 
+   3.9300969636949415`*^9}, {3.930097113888094*^9, 3.9300971208381*^9}, {
+   3.9300976602646284`*^9, 3.9300977582233114`*^9}, {3.9300978162224913`*^9, 
+   3.930097863126266*^9}, {3.9300979660149717`*^9, 3.9300980046622157`*^9}, {
+   3.931041587647807*^9, 3.931041606263994*^9}, {3.9356631135666947`*^9, 
+   3.935663159868891*^9}},
+ CellLabel->"In[23]:=",ExpressionUUID->"27ea4664-9c81-419c-a673-62080361f0ad"],
+
+Cell[BoxData[
+ DynamicModuleBox[{$CellContext`toneVal$$ = 0, $CellContext`majNote$$ = 
+  "Mi", $CellContext`minNote$$ = "Re#", $CellContext`noteMap$$ = Association[
+  "Do" -> 0, "Do#" -> 1, "Re" -> 2, "Re#" -> 3, "Mi" -> 4, "Fa" -> 5, "Fa#" -> 
+   6, "Sol" -> 7, "Sol#" -> 8, "La" -> 9, "La#" -> 10, "Si" -> 
+   11], $CellContext`soundSequence$$, $CellContext`sound$$ = Sound[
+   SoundNote[{0, 2, 7}, 1, "Harpsichord"]]}, 
+  PanelBox[
+   TagBox[GridBox[{
+      {
+       TemplateBox[{StyleBox[
+          DynamicBox[
+           ToBoxes[$CellContext`chordName, StandardForm]], FontSize -> 50, 
+          StripOnInput -> False],TemplateBox[{125}, "Spacer1"],TemplateBox[{
+           ButtonBox[
+           "\"Classic\"", 
+            ButtonFunction :> ($CellContext`noteMap$$ = \
+$CellContext`classicNoteMap), Appearance -> Automatic, Evaluator -> Automatic,
+             Method -> "Preemptive"], 
+           ButtonBox[
+           "\"Western\"", 
+            ButtonFunction :> ($CellContext`noteMap$$ = \
+$CellContext`americanNoteMap), Appearance -> Automatic, Evaluator -> 
+            Automatic, Method -> "Preemptive"]}, "RowDefault"]},
+        "RowDefault"]},
+      {
+       InputFieldBox[Dynamic[$CellContext`toneNote], String,
+        FieldHint->"Enter the tone note of chord",
+        FieldSize->{Automatic, {0, 
+           DirectedInfinity[1]}},
+        FrameMargins->5]},
+      {
+       InputFieldBox[Dynamic[$CellContext`chordNotesStr], String,
+        FieldHint->"Enter the sequence of notes separeted by comma",
+        FieldSize->{40, {0, 
+           DirectedInfinity[1]}},
+        FrameMargins->5]},
+      {
+       ButtonBox["\<\"Submit\"\>",
+        Appearance->Automatic,
+        ButtonFunction:>($CellContext`toneVal$$ = 
+          Part[$CellContext`noteMap$$, $CellContext`toneNote]; \
+$CellContext`chordName = 
+          StringJoin["", $CellContext`toneNote]; $CellContext`majNote$$ = Part[
+            PositionIndex[$CellContext`noteMap$$][$CellContext`toneVal$$ + 4],
+             1]; $CellContext`minNote$$ = Part[
+            PositionIndex[$CellContext`noteMap$$][$CellContext`toneVal$$ + 3],
+             1]; $CellContext`chordNotesArr = 
+          StringSplit[$CellContext`chordNotesStr, ","]; 
+         If[$CellContext`isMinor[$CellContext`chordNotesArr, \
+$CellContext`minNote$$, $CellContext`majNote$$] == 
+           "Minor", $CellContext`chordName = 
+            StringJoin[$CellContext`chordName, "m"]; $CellContext`chordName = 
+            StringJoin[$CellContext`chordName, 
+              $CellContext`generatePostfix[$CellContext`noteMap$$, \
+$CellContext`diffMapWithThree, $CellContext`toneNote, \
+$CellContext`chordNotesArr]], 
+           If[
+           SequenceScanner`isMinor[$CellContext`chordNotesArr, \
+$CellContext`minNote$$, $CellContext`majNote$$] == 
+            "Major", $CellContext`chordName = 
+            StringJoin[$CellContext`chordName, 
+              $CellContext`generatePostfix[$CellContext`noteMap$$, \
+$CellContext`diffMapWithThree, $CellContext`toneNote, \
+$CellContext`chordNotesArr]], $CellContext`chordName = 
+            StringJoin[$CellContext`chordName, 
+              $CellContext`generatePostfix[$CellContext`noteMap$$, \
+$CellContext`diffMapWithoutThree, $CellContext`toneNote, \
+$CellContext`chordNotesArr]]]]; 
+         If[Length[$CellContext`chordNotesArr] != 0, $CellContext`sound$$ = 
+           Sound[
+             SoundNote[
+              $CellContext`formatSequence[$CellContext`noteMap$$, \
+$CellContext`chordNotesArr], 1, "Harpsichord"]]]; Null),
+        Evaluator->Automatic,
+        Method->"Preemptive"]},
+      {
+       DynamicBox[ToBoxes[$CellContext`sound$$, StandardForm],
+        ImageSizeCache->{250., {55., 60.}}]},
+      {
+       ButtonBox["\<\"Clear Notes\"\>",
+        Appearance->Automatic,
+        ButtonFunction:>($CellContext`chordNotesArr = {}),
+        Evaluator->Automatic,
+        Method->"Preemptive"]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{"Columns" -> {{Left}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Column"],
+   Background->RGBColor[0.925, 0.925, 0.925]],
+  DynamicModuleValues:>{}]], "Output",
+ CellChangeTimes->{3.935663064431772*^9, 3.9356746532091317`*^9},
+ CellLabel->"Out[23]=",ExpressionUUID->"8ca570a2-ed45-446f-8da4-da67ecf895e9"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"{", "0", "}"}]], "Print",
+ CellChangeTimes->{3.935674656598734*^9},
+ CellLabel->"",ExpressionUUID->"ff5a3e0d-7a72-47cb-90b0-b86ad2cb6578"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0", ",", "2"}], "}"}]], "Print",
+ CellChangeTimes->{3.9356746566017284`*^9},
+ CellLabel->"",ExpressionUUID->"563fc8a0-1ff5-4f6c-a1f1-9b02e0dcc2ec"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0", ",", "2", ",", "7"}], "}"}]], "Print",
+ CellChangeTimes->{3.9356746566037364`*^9},
+ CellLabel->"",ExpressionUUID->"2ea7b2a1-f573-4c23-aa49-bc60d279a275"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{775, 872},
+WindowMargins->{{99, Automatic}, {-5, Automatic}},
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 155, 3, 96, "Title",ExpressionUUID->"676ca984-1301-47bd-9f0f-25b76682c41a"],
+Cell[738, 27, 146, 3, 34, "Text",ExpressionUUID->"3ec060ed-1d3c-4a30-a9ac-9f35f513e46b"],
+Cell[887, 32, 5234, 103, 884, "Input",ExpressionUUID->"31c0483f-6b65-4f0d-99e8-7a877d531af6"],
+Cell[6124, 137, 1670, 34, 238, "Input",ExpressionUUID->"a9dfb681-8431-4196-9a48-5a4596df912b"],
+Cell[7797, 173, 174, 2, 28, "Input",ExpressionUUID->"b99b4609-37e9-497e-b125-7857c2024726"],
+Cell[7974, 177, 967, 21, 105, "Input",ExpressionUUID->"4ee74136-1d10-48d6-a04b-c17eba218843"],
+Cell[8944, 200, 5478, 139, 352, "Input",ExpressionUUID->"ba0eebbe-c8c6-4f47-9e80-4894c51911f0"],
+Cell[CellGroupData[{
+Cell[14447, 343, 707, 10, 67, "Input",ExpressionUUID->"9ca62976-3e7c-4c00-afb0-0e7f285c78a1"],
+Cell[15157, 355, 283, 6, 22, "Print",ExpressionUUID->"104e97ec-6973-4275-9240-389ed79e8492"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15477, 366, 12124, 222, 922, "Input",ExpressionUUID->"27ea4664-9c81-419c-a673-62080361f0ad"],
+Cell[27604, 590, 4310, 93, 334, "Output",ExpressionUUID->"8ca570a2-ed45-446f-8da4-da67ecf895e9"],
+Cell[CellGroupData[{
+Cell[31939, 687, 162, 3, 22, "Print",ExpressionUUID->"ff5a3e0d-7a72-47cb-90b0-b86ad2cb6578"],
+Cell[32104, 692, 187, 4, 22, "Print",ExpressionUUID->"563fc8a0-1ff5-4f6c-a1f1-9b02e0dcc2ec"],
+Cell[32294, 698, 197, 4, 22, "Print",ExpressionUUID->"2ea7b2a1-f573-4c23-aa49-bc60d279a275"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
