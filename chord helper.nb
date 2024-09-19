@@ -10,25 +10,38 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     34189,        741]
-NotebookOptionsPosition[     32531,        707]
-NotebookOutlinePosition[     32873,        722]
-CellTagsIndexPosition[     32830,        719]
+NotebookDataLength[     34931,        757]
+NotebookOptionsPosition[     33142,        720]
+NotebookOutlinePosition[     33485,        735]
+CellTagsIndexPosition[     33442,        732]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 
 Cell[CellGroupData[{
-Cell["Introduction", "Title",
- CellChangeTimes->{{3.935674716692214*^9, 
-  3.935674729164589*^9}},ExpressionUUID->"676ca984-1301-47bd-9f0f-\
-25b76682c41a"],
+Cell["Introduction ", "Section",
+ CellChangeTimes->{{3.9357043789862556`*^9, 
+  3.935704403242062*^9}},ExpressionUUID->"c988a89b-2bf9-4867-8a32-\
+5743a2e6622f"],
 
-Cell["", "Text",
- CellChangeTimes->{{3.9356747620371876`*^9, 
-  3.9356747651961102`*^9}},ExpressionUUID->"3ec060ed-1d3c-4a30-a9ac-\
-9f35f513e46b"],
+Cell["\<\
+many musicians around the world are trying to find new for themself\
+\[CloseCurlyQuote]s chords by simply combining notes. this process can be \
+difficult especially if you  don\[CloseCurlyQuote]t know any music theory to \
+name the chord that you just found can be really hard and quiet impossible . \
+My goal with this  project was to help musicians to0 name and build some \
+chords by simply analyzing their input sequence of notes.   \
+\>", "Text",
+ CellChangeTimes->{{3.935704462994594*^9, 3.935704797226482*^9}, {
+  3.9357048854175878`*^9, 
+  3.9357049150982466`*^9}},ExpressionUUID->"9156c7f0-1bd0-44c3-8002-\
+33a1b842d5dc"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "Section",ExpressionUUID->"2befd8ce-cff6-4e7d-a2b4-7f216ee6e721"],
 
 Cell[BoxData[{
  RowBox[{
@@ -705,8 +718,8 @@ Cell[BoxData[
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{775, 872},
-WindowMargins->{{99, Automatic}, {-5, Automatic}},
+WindowSize->{1920, 997},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
 FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (April 8, 2019)",
 StyleDefinitions->"Default.nb"
 ]
@@ -722,24 +735,27 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 155, 3, 96, "Title",ExpressionUUID->"676ca984-1301-47bd-9f0f-25b76682c41a"],
-Cell[738, 27, 146, 3, 34, "Text",ExpressionUUID->"3ec060ed-1d3c-4a30-a9ac-9f35f513e46b"],
-Cell[887, 32, 5234, 103, 884, "Input",ExpressionUUID->"31c0483f-6b65-4f0d-99e8-7a877d531af6"],
-Cell[6124, 137, 1670, 34, 238, "Input",ExpressionUUID->"a9dfb681-8431-4196-9a48-5a4596df912b"],
-Cell[7797, 173, 174, 2, 28, "Input",ExpressionUUID->"b99b4609-37e9-497e-b125-7857c2024726"],
-Cell[7974, 177, 967, 21, 105, "Input",ExpressionUUID->"4ee74136-1d10-48d6-a04b-c17eba218843"],
-Cell[8944, 200, 5478, 139, 352, "Input",ExpressionUUID->"ba0eebbe-c8c6-4f47-9e80-4894c51911f0"],
-Cell[CellGroupData[{
-Cell[14447, 343, 707, 10, 67, "Input",ExpressionUUID->"9ca62976-3e7c-4c00-afb0-0e7f285c78a1"],
-Cell[15157, 355, 283, 6, 22, "Print",ExpressionUUID->"104e97ec-6973-4275-9240-389ed79e8492"]
+Cell[580, 22, 160, 3, 67, "Section",ExpressionUUID->"c988a89b-2bf9-4867-8a32-5743a2e6622f"],
+Cell[743, 27, 641, 11, 56, "Text",ExpressionUUID->"9156c7f0-1bd0-44c3-8002-33a1b842d5dc"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[15477, 366, 12124, 222, 922, "Input",ExpressionUUID->"27ea4664-9c81-419c-a673-62080361f0ad"],
-Cell[27604, 590, 4310, 93, 334, "Output",ExpressionUUID->"8ca570a2-ed45-446f-8da4-da67ecf895e9"],
+Cell[1421, 43, 74, 0, 67, "Section",ExpressionUUID->"2befd8ce-cff6-4e7d-a2b4-7f216ee6e721"],
+Cell[1498, 45, 5234, 103, 884, "Input",ExpressionUUID->"31c0483f-6b65-4f0d-99e8-7a877d531af6"],
+Cell[6735, 150, 1670, 34, 238, "Input",ExpressionUUID->"a9dfb681-8431-4196-9a48-5a4596df912b"],
+Cell[8408, 186, 174, 2, 28, "Input",ExpressionUUID->"b99b4609-37e9-497e-b125-7857c2024726"],
+Cell[8585, 190, 967, 21, 105, "Input",ExpressionUUID->"4ee74136-1d10-48d6-a04b-c17eba218843"],
+Cell[9555, 213, 5478, 139, 162, "Input",ExpressionUUID->"ba0eebbe-c8c6-4f47-9e80-4894c51911f0"],
 Cell[CellGroupData[{
-Cell[31939, 687, 162, 3, 22, "Print",ExpressionUUID->"ff5a3e0d-7a72-47cb-90b0-b86ad2cb6578"],
-Cell[32104, 692, 187, 4, 22, "Print",ExpressionUUID->"563fc8a0-1ff5-4f6c-a1f1-9b02e0dcc2ec"],
-Cell[32294, 698, 197, 4, 22, "Print",ExpressionUUID->"2ea7b2a1-f573-4c23-aa49-bc60d279a275"]
+Cell[15058, 356, 707, 10, 67, "Input",ExpressionUUID->"9ca62976-3e7c-4c00-afb0-0e7f285c78a1"],
+Cell[15768, 368, 283, 6, 22, "Print",ExpressionUUID->"104e97ec-6973-4275-9240-389ed79e8492"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16088, 379, 12124, 222, 713, "Input",ExpressionUUID->"27ea4664-9c81-419c-a673-62080361f0ad"],
+Cell[28215, 603, 4310, 93, 334, "Output",ExpressionUUID->"8ca570a2-ed45-446f-8da4-da67ecf895e9"],
+Cell[CellGroupData[{
+Cell[32550, 700, 162, 3, 22, "Print",ExpressionUUID->"ff5a3e0d-7a72-47cb-90b0-b86ad2cb6578"],
+Cell[32715, 705, 187, 4, 22, "Print",ExpressionUUID->"563fc8a0-1ff5-4f6c-a1f1-9b02e0dcc2ec"],
+Cell[32905, 711, 197, 4, 22, "Print",ExpressionUUID->"2ea7b2a1-f573-4c23-aa49-bc60d279a275"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
